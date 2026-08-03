@@ -1,0 +1,19 @@
+{
+  "name": "FIT — habit tracker",
+  "short_name": "FIT",
+  "description": "Edzés- és életmódcélok követése.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f9f9f7",
+  "theme_color": "#f9f9f7",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

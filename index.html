@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FIT — habit tracker</title>
+  <meta name="description" content="Edzés- és életmódcélok követése a csapatnak.">
+
+  <meta name="theme-color" content="#f9f9f7">
+
+  <!-- A témát és az alapszínt még az első kirajzolás előtt beállítjuk, hogy ne
+       villanjon fel a rossz háttér. A theme.js és az accent.js utána ugyanezt
+       a logikát viszi tovább. -->
+  <script>
+    (function () {
+      var mode = null;
+      var accent = null;
+      try {
+        mode = localStorage.getItem('fit.theme');
+        accent = localStorage.getItem('fit.accent');
+      } catch (e) { /* privát mód */ }
+
+      var dark = mode === 'dark'
+        || ((!mode || mode === 'auto') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+
+      var known = ['violet', 'blue', 'teal', 'orange'];
+      document.documentElement.dataset.accent = known.indexOf(accent) >= 0 ? accent : 'violet';
+    })();
+  </script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FIT">
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div id="app"></div>
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+
+  <noscript>
+    <p style="padding:24px;text-align:center">Az oldal működéséhez engedélyezd a JavaScriptet.</p>
+  </noscript>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
