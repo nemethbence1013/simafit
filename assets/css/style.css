@@ -708,7 +708,6 @@ code {
   pointer-events: none;
 }
 
-.whois__item .avatar img { filter: grayscale(1); }
 
 .whois__item .tile-add {
   background: transparent;
